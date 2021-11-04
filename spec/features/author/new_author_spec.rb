@@ -6,3 +6,5 @@ describe "New author page", type: :feature do
     visit new_author_path
   end
 end
+
+# Comment
