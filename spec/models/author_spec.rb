@@ -9,6 +9,6 @@ describe "Author", type: :model do
     end
     it "should have a method name that returns the full name" do
         author = build :author
-        expect(author.name()).to eq('Alan Turing')
+        expect(author.name).to eq('Alan Turing')
     end
 end
