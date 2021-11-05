@@ -20,4 +20,16 @@ class AuthorController < ApplicationController
     def show
         @author = Author.find(params[:id])
     end
+    def edit
+        @author = Author.find(params[:id])
+    end
+    def update
+        @author = Author.find(params[:id])
+        @author.update({
+            :first_name => params[:author][:first_name],
+            :last_name => params[:author][:last_name],
+            :homepage => params[:author][:homepage]
+        })
+        render 'edit'
+    end
 end
