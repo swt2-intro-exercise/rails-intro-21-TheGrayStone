@@ -11,6 +11,7 @@ describe "List authors page", type: :feature do
     expect(page).to have_text(alan.homepage)
     expect(page).to have_link alan.name, href: author_path(alan)
     expect(page).to have_link 'New', href: new_author_path
+    expect(page).to have_link 'Edit', href: edit_author_path(alan)
   end
 end
 
