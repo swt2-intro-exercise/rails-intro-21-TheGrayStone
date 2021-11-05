@@ -11,4 +11,8 @@ describe "Author", type: :model do
         author = build :author
         expect(author.name).to eq('Alan Turing')
     end
+    it "should not validate without last_name" do
+        alan = build :invalid_author
+        expect(alan).to_not be_valid
+    end
 end
