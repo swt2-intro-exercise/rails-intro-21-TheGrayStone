@@ -20,6 +20,13 @@ describe "New author page", type: :feature do
     find('input[type="submit"]').click
     expect(Author.count).to eq(previous_count + 1)
   end
+  it "should display error when last_name is not provided" do
+    visit new_author_path
+    page.fill_in 'author[first_name]', with: 'alan'
+    page.fill_in 'author[homepage]', with: 'http://wikipedia.org/Alan_Turing'
+    find('input[type="submit"]').click
+    expect(page).to have_text('error')
+  end
 end
 
 # Comment
