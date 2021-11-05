@@ -9,6 +9,7 @@ describe "List authors page", type: :feature do
     expect(page).to have_table
     expect(page).to have_text(alan.name)
     expect(page).to have_text(alan.homepage)
+    expect(page).to have_link alan.name, href: author_path(alan)
     expect(page).to have_link 'New', href: new_author_path
   end
 end
