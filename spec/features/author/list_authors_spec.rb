@@ -18,7 +18,7 @@ describe "List authors page", type: :feature do
   it "should have a delete button for every user" do
     visit authors_path
     prevCount = Author.count
-    selector = 'a[data-method=\'delete\'][href=\'' + edit_author_path(@alan) + '\']'
+    selector = 'a[data-method=\'delete\'][href=\'' + author_path(@alan) + '\']'
     expect(page).to have_css(selector)
     find(selector).click
     expect(Author.count).to eq(prevCount - 1)

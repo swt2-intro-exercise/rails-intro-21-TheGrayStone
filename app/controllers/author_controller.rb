@@ -32,4 +32,9 @@ class AuthorController < ApplicationController
         })
         render 'edit'
     end
+    def destroy
+        @author = Author.find(params[:id])
+        @author.delete
+        redirect_to authors_path, notice: 'Success!'
+    end
 end

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'author/new', to: 'author#new', as: 'new_author'
   post 'author/new', to: 'author#create'
   get 'author/show/:id', to: 'author#show', as: 'author'
+  delete 'author/show/:id', to: 'author#destroy'
   get 'author/edit/:id', to: 'author#edit', as: 'edit_author'
   post 'author/edit/:id', to: 'author#update'
 
