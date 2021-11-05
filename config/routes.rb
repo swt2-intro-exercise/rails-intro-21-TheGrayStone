@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post 'author/new', to: 'author#create'
   get 'author/show/:id', to: 'author#show', as: 'author'
 
+  get 'authors', to: 'author#index', as: 'authors'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
