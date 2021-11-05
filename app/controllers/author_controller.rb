@@ -11,7 +11,11 @@ class AuthorController < ApplicationController
             :homepage => params[:author][:homepage]
         })
         @author.save
-        redirect_to root_path, notice: 'Success!'
+        if !@author.errors.any?
+            redirect_to root_path, notice: 'Success!'
+        else
+            render 'new'
+        end
     end
     def show
         @author = Author.find(params[:id])
