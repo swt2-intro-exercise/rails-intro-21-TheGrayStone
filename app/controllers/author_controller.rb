@@ -1,5 +1,7 @@
-class NewAuthorController < ApplicationController
+class AuthorController < ApplicationController
     def index
+    end
+    def new
     end
     def create
         @author = Author.new({
@@ -8,5 +10,9 @@ class NewAuthorController < ApplicationController
             :homepage => params[:author][:homepage]
         })
         @author.save
+        redirect_to root_path, notice: 'Success!'
+    end
+    def show
+        @author = Author.find(params[:id])
     end
 end
