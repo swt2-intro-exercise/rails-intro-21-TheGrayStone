@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :papers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rails routes".
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -8,13 +9,31 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
+  get 'author/new', to: 'author#new', as: 'new_author'
+  post 'author/new', to: 'author#create'
+  get 'author/show/:id', to: 'author#show', as: 'author'
+  delete 'author/show/:id', to: 'author#destroy'
+  get 'author/edit/:id', to: 'author#edit', as: 'edit_author'
+  post 'author/edit/:id', to: 'author#update'
+
+  get 'authors', to: 'author#index', as: 'authors'
+
+  get 'papers/new', to: 'paper#new'
+  get 'papers/edit/:id', to: 'paper#edit'
+  get 'papers/:id', to: 'paper#show'
+  get 'papers', to: 'paper#index'
+  post 'papers', to: 'paper#create'
+  put 'papers/:id', to: 'paper#update'
+  patch 'papers/:id', to: 'paper#update'
+  delete 'papers/:id', to: 'paper#destroy'
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-  
+
   # Example resource route with options:
   #   resources :products do
   #     member do
