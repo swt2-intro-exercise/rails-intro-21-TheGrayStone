@@ -18,7 +18,9 @@ RSpec.describe "papers/show", type: :view do
   it "should show the author's name" do
     alan = build :author
     @paper.authors << alan
+    @paper.save
+    puts @paper.authors[0].name
     render
-    expect(rendered).to have_text('Alan Turing')
+    expect(rendered).to have_text(@paper.authors[0].name)
   end
 end
