@@ -15,7 +15,7 @@ FactoryBot.define do
   end
   factory :paper_without_year, class: "Paper" do
     title { "COMPUTING MACHINERY AND INTELLIGENCE" }
-    title { "Mind 49: 433-460" }
+    venue { "Mind 49: 433-460" }
   end
   factory :paper_with_invalid_year, class: "Paper" do
    title { "COMPUTING MACHINERY AND INTELLIGENCE" }
