@@ -19,6 +19,19 @@ RSpec.describe "papers/edit", type: :view do
       assert_select "input[name=?]", "paper[venue]"
 
       assert_select "input[name=?]", "paper[year]"
+
     end
+  end
+  it "should be able to assign authors to a paper" do
+    prev_length = @paper.authors.length
+    author = build :author
+    author.save
+    render
+    expect(rendered).to have_field('paper[authors]')
+    select = rendered.find('select')
+    select.select author.id
+    find('input[type="submit"]').click
+    @paper.reload
+    expect(@paper.authors.length).to be(prev_length + 1)
   end
 end
