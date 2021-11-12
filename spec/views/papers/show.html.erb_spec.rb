@@ -15,4 +15,10 @@ RSpec.describe "papers/show", type: :view do
     expect(rendered).to match(/Venue/)
     expect(rendered).to match(/2/)
   end
+  it "should show the author's name" do
+    alan = build :author
+    @paper.authors << alan
+    render
+    expect(rendered).to have_text('Alan Turing')
+  end
 end
