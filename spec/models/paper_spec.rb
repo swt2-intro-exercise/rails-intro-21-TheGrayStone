@@ -21,4 +21,8 @@ RSpec.describe Paper, type: :model do
     inv_paper_2 = build :paper_with_invalid_year
     expect(inv_paper_2).to_not be_valid
   end
+  it "has an empty list of authors" do
+    paper = build :paper
+    expect(paper.authors.length).to be(0)
+  end
 end
