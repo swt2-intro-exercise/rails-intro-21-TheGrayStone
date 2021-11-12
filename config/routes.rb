@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :papers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rails routes".
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -20,6 +21,15 @@ Rails.application.routes.draw do
   post 'author/edit/:id', to: 'author#update'
 
   get 'authors', to: 'author#index', as: 'authors'
+
+  get 'papers/new', to: 'paper#new'
+  get 'papers/edit/:id', to: 'paper#edit'
+  get 'papers/:id', to: 'paper#show'
+  get 'papers', to: 'paper#index'
+  post 'papers', to: 'paper#create'
+  put 'papers/:id', to: 'paper#update'
+  patch 'papers/:id', to: 'paper#update'
+  delete 'papers/:id', to: 'paper#destroy'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
